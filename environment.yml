@@ -1,0 +1,8 @@
+name: Boddac_scrap
+channels:
+ -defauts
+ -conda-forge
+ dependencies:
+ - python=3.7
+ - fastapi
+ - pandas
