@@ -11,7 +11,8 @@ def api_request(siren):
     response = requests.get(url3)
     # print(response.status_code)
     if response.status_code == 200:
-        info.append(response)
-        print(info)
+        # info.append(response)
+        print(response.json())
+
 
 

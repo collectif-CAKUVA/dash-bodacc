@@ -35,4 +35,4 @@ df_final = pd.DataFrame({
     'Num RCS': s_numero_identification
 })
 
-print(df_final)
+# print(df_final)
