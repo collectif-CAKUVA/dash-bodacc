@@ -5,6 +5,7 @@ test = 'RCS-A_BXA20200102.taz'
 
 
 def download():
+    """ download the taz file from Bodacc """
     test = 'RCS-A_BXA20200102.taz'
     url2 = f"https://echanges.dila.gouv.fr/OPENDATA/BODACC/2020/{test}"
     response = requests.get(url2, stream=True)
