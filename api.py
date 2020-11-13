@@ -27,7 +27,7 @@ def api_request(siren):
             # print key value from dict in code_ape.py removing (.)
             print(d.get(json_data['unite_legale']['etablissement_siege']['activite_principale'].replace('.','') ))
             activite.append(d.get(json_data['unite_legale']['etablissement_siege']['activite_principale'].replace('.','') ))
-            print("_*_"*10)
+            print('##########' * 5)
 
 
             #print(json_data['unite_legale']['etablissement_siege']['libelle_commune'])
@@ -35,7 +35,7 @@ def api_request(siren):
         except:
 
             print('None')
-            print("_*_" * 10)
+            print('##########' * 5)
 
 
 
