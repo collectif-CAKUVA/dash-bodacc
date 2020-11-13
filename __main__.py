@@ -20,8 +20,7 @@ tree = et.parse('RCS-A_BXA20200102.xml')
 root = tree.getroot()
 
 """ retrieve the siren number from the xml files"""
-for i in root.iter("avis"):
-    root1 = i
+for root1 in root.iter("avis"):
     s_numero_identification = funct_pool.get_personnes(root1)
 
 for siren in s_numero_identification:
@@ -36,3 +35,5 @@ df_final = pd.DataFrame({
 })
 
 # print(df_final)
+
+#print(ape, activite)
