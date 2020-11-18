@@ -4,6 +4,7 @@ import itertools
 
 s_numero_identification = []
 s_activite = []
+
 x = 0
 
 def get_personnes(root):
@@ -18,7 +19,7 @@ def get_personnes(root):
                 personne.find('personneMorale/numeroImmatriculation/numeroIdentification')
                 choix2 = personne.find('personneMorale/numeroImmatriculation/numeroIdentification')
                 s_numero_identification.append((choix2.text).replace(' ', ''))
-                # print(choix2.text)
+                #print(choix2.text)
 
             except:
 
@@ -26,18 +27,19 @@ def get_personnes(root):
                     personne.find('personnePhysique/numeroImmatriculation/numeroIdentification')
                     choix = personne.find('personnePhysique/numeroImmatriculation/numeroIdentification')
                     s_numero_identification.append((choix.text).replace(' ', ''))
-                    # print(choix.text)
+                    print(choix.text)
 
                 except:
-                    # print('Non immatriculée')
+                    #print('Non immatriculée')
                     s_numero_identification.append("None")
 
-            # print(x)
+            #print(x)
+
     return s_numero_identification
 
 
 def get_etablissement(root):
-    ''' get etablissement/activite in avis'''
+    '''get etablissement in avis'''
     stop = 1
     k = root.find('etablissement')
     if k is None:
@@ -51,12 +53,16 @@ def get_etablissement(root):
             except:
                 s_activite.append('aucune activite')
 
+
+
+    #dict_etablissement = {
+        #'activite': s_activite
+        #'enseigne': s_enseigne,
+        #'origineFonds': s_origine_fonds,
+        #'qualiteEtablissement': s_qualite_etab,
+    #}
+
+
+
+
     return s_activite
-
-#dict_etablissement = {
-    #'activite': s_activite
-    #'enseigne': s_enseigne,
-    #'origineFonds': s_origine_fonds,
-    #'qualiteEtablissement': s_qualite_etab,
-#}
-
