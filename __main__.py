@@ -8,16 +8,14 @@ import funct_pool
 import api
 import time
 
-#anomalies = entrée 89 > pas de siret
+# anomalies = entrée 89 > pas de siret
 
 
-rcParams.update({'font.size': 15})
+# rcParams.update({'font.size': 15})
 
 test = ''
-
 de.download()
 de.extract_tar()
-
 
 """ get element tree module to iter on xml files """
 tree = et.parse('RCS-A_BXA20200102.xml')
@@ -34,6 +32,10 @@ for root1 in root.iter("avis"):
 
 start_time = time.time()
 
+""" iteration on the lenght s_numero_identification 
+    1/ api request with siren to get the siret and APE code
+    2/ print activite from the XML 
+ """
 for siren in range(len(s_numero_identification)):
     print(f'entrée n° {siren + 1}')
     print(s_numero_identification[siren])
@@ -41,23 +43,22 @@ for siren in range(len(s_numero_identification)):
     print(s_activite[siren])
     print('##########' * 5)
 
+""" counter """
 end_time = time.time()
+print(
+    F"le temps d'execution du script est de {round(end_time - start_time)} s, soit {round((end_time - start_time) / 60)} min")
 
-
-print( F"le temps d'execution du script est de {round(end_time-start_time)} s, soit {round((end_time-start_time)/60)} min")
-
+""" compare the lists """
 print(f" nombre d'activité {len(s_activite)}, nombre de siren {len(s_numero_identification)}")
 
-
-
-df_control = pd.DataFrame({
-    'numero d identification': len(s_numero_identification),
-}, index=["nb_lignes"]).T
-
-df_final = pd.DataFrame({
-    'Num RCS': s_numero_identification
-})
+# df_control = pd.DataFrame({
+#     'numero d identification': len(s_numero_identification),
+# }, index=["nb_lignes"]).T
+#
+# df_final = pd.DataFrame({
+#     'Num RCS': s_numero_identification
+# })
 
 # print(df_final)
 
-#print(ape, activite)
+# print(ape, activite)
