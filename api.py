@@ -1,59 +1,65 @@
 import requests
 import json
-from csv_ape import d
-import funct_pool
+import re
+from csv_ape import ape_dict
 
-#850828005
-siren = []
+
+sirenn_api = []
+siret = []
 ape = []
-activite = []
+s_activite_insee= []
 adresse = []
-bug = 0
-total = 0
+
 
 def api_request(siren):
-    # time.sleep(2)
-    global bug
-    global total
-    url3 = f"https://entreprise.data.gouv.fr/api/sirene/v3/unites_legales/{siren}"
-    response = requests.get(url3)
-    # print(response.status_code)
-    if response.status_code == 200:
-        # info.append(response)
 
+
+
+    # time.sleep(2)
+    """ global refer to sirenn_api list outside the function """
+    url3 = f"https://entreprise.data.gouv.fr/api/sirene/v3/unites_legales/{siren}"
+    remove_characters = [".", "[", "]", '"']
+    response = requests.get(url3)
+    if response.status_code == 200:
         json_data = json.loads(response.text)
+        try:
+            x = ape_dict.get(json_data['unite_legale']['etablissement_siege']['activite_principale'].replace('.', ''))
+            clean = x[0]
+        except:
+            pass
+
+        #try:
+        #    print(json_data['unite_legale']['etablissements'][0]['siret'])
+            # siret.append(json_data['unite_legale']['etablissements'][0]['siret'])
+
+        #except:
+        #    print(" /!\ erreur SIRET" * 5)
 
         try:
-
-            #print(json_data['unite_legale']['siren'])
-            print(json_data['unite_legale']['etablissements'][0]['siret'])
-            total += 1
-            #print(json_data['unite_legale']['etablissement_siege']['activite_principale'])
-            #ape.append(json_data['unite_legale']['etablissement_siege']['activite_principale'])
-
+            print(json_data['unite_legale']['etablissement_siege']['activite_principale'])
+            # ape.append(json_data['unite_legale']['etablissement_siege']['activite_principale'])
             # print key value from dict in code_ape.py removing (.)
-            #print(d.get(json_data['unite_legale']['etablissement_siege']['activite_principale'].replace('.' ,'')))
-            #activite.append(d.get(json_data['unite_legale']['etablissement_siege']['activite_principale'].replace('.' ,'')))
-
-            #print(json_data['unite_legale']['etablissement_siege']['geo_adresse'])
-            #adresse.append(json_data['unite_legale']['etablissement_siege']['geo_adresse'])
-
-            print('##########' * 5)
 
 
-
+            # print insee acitivite
+            s_activite_insee.append(clean)
+            print(clean)
+            print(len(s_activite_insee))
+            # print(json_data['unite_legale']['etablissement_siege']['geo_adresse'])
+            # adresse.append(json_data['unite_legale']['etablissement_siege']['geo_adresse'])
 
 
         except:
-            #funct_pool.fill_up()
-            print('None')
-            bug += 1
-            print('##########' * 5)
+            print(" /!\ erreur APE " * 5)
+            # ape.append('none')
+            s_activite_insee.append('none')
+            print(len(s_activite_insee))
 
-        print(f"{round((bug / total) * 100)}% d'erreur")
+    else:
+        print(response.status_code)
+        sirenn_api.append("none")
+        s_activite_insee.append('none')
+        print("BAD REQUEST")
 
-
-    return bug, total
-
-
+    return s_activite_insee
 
