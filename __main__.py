@@ -83,9 +83,6 @@ print(s_error)
 end_time = time.time()
 print(F"le temps d'execution du script est de {round(end_time - start_time)} s, soit {round((end_time - start_time) / 60)} min")
 
-""" compare the lists """
-
-
 print( f'nombre Act déclarée: {len(s_activite_declaree)} nombre num id {len(s_numero_identification)} '
        f'n° dep {len(s_numeroDepartement)}, nb acti insee {len(s_activite_insee)}, nb APE {len(s_ape)}')
 

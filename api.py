@@ -33,7 +33,6 @@ def api_request(siren):
     elif response.status_code == 429:
         print(response.status_code)
         print(" TOO MANY REQUEST "*10)
-        print("APE Non Diffusable")
         s_ape.append("APE Non Diffusable")
         s_activite_insee.append("APE Non Diffusable")
     else:
