@@ -1,5 +1,4 @@
 import csv
-import re
 
 """dict creation from csv to store APE code """
 
