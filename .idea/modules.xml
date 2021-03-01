@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Bodacc.iml" filepath="$PROJECT_DIR$/.idea/Bodacc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/dash-bodacc.iml" filepath="$PROJECT_DIR$/.idea/dash-bodacc.iml" />
     </modules>
   </component>
 </project>
