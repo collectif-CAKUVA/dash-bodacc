@@ -1,8 +1,19 @@
-name: Boddac_scrap
+name: projet_camacho
 channels:
- -defauts
- -conda-forge
- dependencies:
- - python=3.7
- - fastapi
- - pandas
+  - defaults
+dependencies:
+  - python=3.8
+  - pandas
+  - lxml
+  - tar
+  - requests
+  - bs4
+  - regex
+  - matplotlib
+  - tabulate
+  - jupyterlab
+  - scikit-learn
+  - seaborn
+  - nltk
+  - spacy
+prefix: /home/t/anaconda3/envs/projet_camacho
