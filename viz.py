@@ -2,6 +2,7 @@ import pandas as pd
 
 from Bodacc.__main__ import s_numero_identification, s_numeroDepartement, s_date_parution, \
     s_activite_insee
+from Bodacc.api import s_ape
 from Bodacc.funct_pool import s_activite_declaree
 
 df_final = pd.DataFrame({
@@ -12,11 +13,14 @@ df_final = pd.DataFrame({
      'code_ape': s_ape,
      'activte_insee': s_activite_insee
 })
+
+df_ml = pd.DataFrame({
+    'activite': s_activite_declaree,
+    'code_ape': s_ape
+})
+
+
 with pd.option_context('display.max_rows', None, 'display.max_columns', None):
     df_final.to_html('temp.html')
     df_final.to_csv('data.csv', header = True, encoding= 'utf-8')
-    gk = df_final.groupby('activte_insee').count().reset_index()
-    try:
-        gk.describe().to_html("test.html")
-    except:
-        pass
+    df_ml.to_csv('raw_data.csv', header = True, encoding = 'utf_8')

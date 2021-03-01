@@ -81,7 +81,8 @@ print(s_error)
 
 """ counter """
 end_time = time.time()
-print(F"le temps d'execution du script est de {round(end_time - start_time)} s, soit {round((end_time - start_time) / 60)} min")
+temps = end_time - start_time
+print(F"le temps d'execution du script est de {round(temps)} s, soit {round(temps / 60)} min , soit round(temps)/360 heures")
 
 print( f'nombre Act déclarée: {len(s_activite_declaree)} nombre num id {len(s_numero_identification)} '
        f'n° dep {len(s_numeroDepartement)}, nb acti insee {len(s_activite_insee)}, nb APE {len(s_ape)}')
