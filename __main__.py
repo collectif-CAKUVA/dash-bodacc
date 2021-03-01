@@ -1,8 +1,8 @@
 import xml.etree.ElementTree as et
 import time
 import glob, os
-from Bodacc.api import s_activite_insee, s_ape
-from Bodacc.funct_pool import s_activite_declaree, get_personnes
+from api import s_activite_insee, s_ape
+from funct_pool import s_activite_declaree, get_personnes
 
 s_numeroDepartement = []
 s_date_parution = []
