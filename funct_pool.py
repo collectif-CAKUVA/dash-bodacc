@@ -1,3 +1,10 @@
+"""
+
+parsing module
+
+"""
+
+
 import itertools
 from api import api_request, s_activite_insee, s_ape
 

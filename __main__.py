@@ -96,10 +96,11 @@ print( f'nombre Act déclarée: {len(s_activite_declaree)} nombre num id {len(s_
 
 
 
+"""/!\ do not erase the import viz below > runs viz.py file"""
+
 import viz
 
-
-
+"""/!\ do not erase the import viz above > runs viz.py file"""
 
 
 

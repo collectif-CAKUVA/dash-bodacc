@@ -6,8 +6,13 @@ import requests
 import tarfile
 
 """
-Downloading .taz
+Downloading all .taz from data.gouv.fr (2021 folder)
+
+then 
+
 unzip.taz to .xml
+
+# functionnal but unactivated. download_extract.py is enough for testing now
 """
 
 
@@ -20,7 +25,6 @@ def extract_tar(test):
 
 def download(test):
     """ download taz file from Bodacc """
-
     url2 = f"https://echanges.dila.gouv.fr/OPENDATA/BODACC/2021/{test}"
     response = requests.get(url2, stream=True)
     if os.path.isfile(f'./{test}') is False:

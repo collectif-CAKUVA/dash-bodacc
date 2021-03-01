@@ -1,3 +1,9 @@
+"""
+visulasation module
+importing data to DF then exporting data to .html and csv.files
+
+"""
+
 import pandas as pd
 
 from __main__ import s_numero_identification, s_numeroDepartement, s_date_parution, \
