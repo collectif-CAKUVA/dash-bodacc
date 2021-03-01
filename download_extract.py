@@ -1,6 +1,6 @@
 import requests
 import tarfile
-from scrap import files
+#from scrap import files
 
 #test = 'RCS-A_BXA20200102.taz'
 

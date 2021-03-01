@@ -1,9 +1,9 @@
 import pandas as pd
 
-from Bodacc.__main__ import s_numero_identification, s_numeroDepartement, s_date_parution, \
+from __main__ import s_numero_identification, s_numeroDepartement, s_date_parution, \
     s_activite_insee
-from Bodacc.api import s_ape
-from Bodacc.funct_pool import s_activite_declaree
+from api import s_ape
+from funct_pool import s_activite_declaree
 
 df_final = pd.DataFrame({
      'siren': s_numero_identification,
