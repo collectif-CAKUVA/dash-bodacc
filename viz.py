@@ -23,4 +23,3 @@ df_ml = pd.DataFrame({
 with pd.option_context('display.max_rows', None, 'display.max_columns', None):
     df_final.to_html('temp.html')
     df_final.to_csv('data.csv', header = True, encoding= 'utf-8')
-    df_ml.to_csv('raw_data.csv', header = True, encoding = 'utf_8')
