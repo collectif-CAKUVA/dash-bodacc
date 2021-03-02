@@ -1,2 +1,5 @@
 import pandas as pd
-data = pd.read_csv("data.csv")
+
+""" transforme CSV to dataframe  """
+df = pd.read_csv("data.csv")
+
