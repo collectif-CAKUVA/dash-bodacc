@@ -1,19 +1,26 @@
 name: projet_camacho
 channels:
+  - https://conda.atoti.io
+  - conda-forge
   - defaults
 dependencies:
-  - python=3.8
-  - pandas
-  - lxml
-  - tar
   - requests
-  - bs4
-  - regex
-  - matplotlib
-  - tabulate
-  - jupyterlab
-  - scikit-learn
   - seaborn
   - nltk
+  - scikit-learn
   - spacy
-prefix: /home/t/anaconda3/envs/projet_camacho
+  - tabulate
+  - matplotlib
+  - lxml
+  - pandas
+  - bs4
+  - regex
+  - python=3.8
+  - tar
+  - jupyterlab
+  - jupyter-dash
+  - sqlalchemy
+  - request
+  - psycopg2
+  - geopy
+prefix: /Users/marinelafargue/anaconda3/envs/projet_camacho
