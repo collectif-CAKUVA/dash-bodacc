@@ -1,5 +1,12 @@
+"""
+
+parsing module
+
+"""
+
+
 import itertools
-from Bodacc.api import api_request, s_activite_insee, s_ape
+from api import api_request, s_activite_insee, s_ape
 
 s_date_publication = []
 s_numero_identification = []

@@ -1,9 +1,15 @@
+"""
+visulasation module
+importing data to DF then exporting data to .html and csv.files
+
+"""
+
 import pandas as pd
 
-from Bodacc.__main__ import s_numero_identification, s_numeroDepartement, s_date_parution, \
+from __main__ import s_numero_identification, s_numeroDepartement, s_date_parution, \
     s_activite_insee
-from Bodacc.api import s_ape
-from Bodacc.funct_pool import s_activite_declaree
+from api import s_ape
+from funct_pool import s_activite_declaree
 
 df_final = pd.DataFrame({
      'siren': s_numero_identification,
@@ -23,4 +29,3 @@ df_ml = pd.DataFrame({
 with pd.option_context('display.max_rows', None, 'display.max_columns', None):
     df_final.to_html('temp.html')
     df_final.to_csv('data.csv', header = True, encoding= 'utf-8')
-    df_ml.to_csv('raw_data.csv', header = True, encoding = 'utf_8')

@@ -1,9 +1,16 @@
 import xml.etree.ElementTree as et
 import time
 import glob, os
-from Bodacc.api import s_activite_insee, s_ape
-from Bodacc.funct_pool import s_activite_declaree, get_personnes
+from download_extract import download, extract_tar, test
+from api import s_activite_insee, s_ape
+from funct_pool import s_activite_declaree, get_personnes
 
+
+"""dowloading + extracting with download_extract.py"""
+download()
+extract_tar(test)
+
+s_numero_identification = []
 s_numeroDepartement = []
 s_date_parution = []
 s_error = []
@@ -82,13 +89,18 @@ print(s_error)
 """ counter """
 end_time = time.time()
 temps = end_time - start_time
-print(F"le temps d'execution du script est de {round(temps)} s, soit {round(temps / 60)} min , soit round(temps)/360 heures")
+print(f"le temps d'execution du script est de {round(temps)} s, soit {round(temps / 60)} min , soit {round(temps/3600)} heures")
 
 print( f'nombre Act déclarée: {len(s_activite_declaree)} nombre num id {len(s_numero_identification)} '
        f'n° dep {len(s_numeroDepartement)}, nb acti insee {len(s_activite_insee)}, nb APE {len(s_ape)}')
 
 
 
+"""/!\ do not erase the import viz below > runs viz.py file"""
+
+import viz
+
+"""/!\ do not erase the import viz above > runs viz.py file"""
 
 
 
