@@ -14,8 +14,8 @@ Data:
 
 """ création de dataframe et du graph --> Dash / plotly"""
 app = dash.Dash(__name__)
-print(df)
-fig = px.line(df, x="date_publication", y="siren", color="activte_insee", template='plotly_dark')
+# print(df)
+fig = px.line(df2, x="date_publication", y="size", color="code_ape", template='plotly_dark')
 
 """ html display """
 app.layout = html.Div(children=[
