@@ -14,7 +14,7 @@ __Work In Progress__
 3. Créer l'environnement de développement à partir du fichier environnement.yml avec la commande:  
    `conda env create -f environment.yml`
 4. Activer l'environnement de développement avec la commande:  
-   `conda activate procjet_camacho`
+   `conda activate projet_camacho`
 5. Lancer __ main __.py
 
     
