@@ -1,5 +1,0 @@
-user = ""
-password = ""
-host = ""
-port = ""
-name = ""

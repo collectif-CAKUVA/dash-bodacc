@@ -4,6 +4,7 @@ import dash_core_components as dcc
 import plotly.express as px
 import dash_html_components as html
 
+
 """ 
 graph 1 --> date + activite + code APE 
 Data:
