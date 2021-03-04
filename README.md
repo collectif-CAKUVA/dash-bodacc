@@ -3,7 +3,7 @@ Projet d'analyse des données du Bulletin Officiel Des Annonces Civiles et Comme
 
 __Work In Progress__  
 
-##Outil de développement 
+## Outil de développement 
 * un IDE  
 * un client GIT  
 * [Anaconda](https://www.anaconda.com/products/individual#Downloads) comme gestionnaire de paquets 
