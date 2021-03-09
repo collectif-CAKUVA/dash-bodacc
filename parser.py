@@ -1,0 +1,94 @@
+import xml.etree.ElementTree as et
+import glob, os
+import time
+from api import api_request
+
+os.chdir("./.")
+
+liste = []
+
+
+
+for file in glob.glob("*.xml"):
+    try:
+        tree = et.parse(file)
+        root = tree.getroot()
+
+        date = root.findtext('dateParution')
+
+        try:
+            for root1 in root.iter("avis"):
+
+                """" recuperation siren """
+
+                if root1.findtext('personnes/personne/personneMorale/numeroImmatriculation/numeroIdentification') is None:
+                    siren = root1.findtext('personnes/personne/personnePhysique/numeroImmatriculation/numeroIdentification')
+                else:
+                    siren = root1.findtext('personnes/personne/personneMorale/numeroImmatriculation/numeroIdentification')
+
+                siren2 = siren.replace(' ', '')
+
+                temp = root1.findtext('personnes/personne/adresse/france/codePostal')
+
+                """ recuperation forme entreprise"""
+
+                if root1.findtext('personnes/personne/personneMorale/formeJuridique') is None:
+                    forme_juridique = 'Entreprise Individuelle'
+                else:
+                    forme_juridique = root1.findtext('personnes/personne/personneMorale/formeJuridique')
+
+                if root1.findtext('etablissement/activite') is None:
+                    activite_declaree = "pas d'activite"
+                else:
+                    activite_declaree = root1.findtext('etablissement/activite')
+
+                if root1.findtext('etablissement/adresse/codePostal') is None:
+                    code_postal = temp
+                else:
+                    code_postal = root1.findtext('etablissement/adresse/codePostal')
+
+                if root1.findtext('acte/creation/dateImmatriculation') is None:
+                    if root1.findtext('acte/immatriculation/dateImmatriculation') is None:
+                        if root1.findtext('acte/vente/dateImmatriculation') is None:
+                            date_immat = date
+                        else:
+                            date_immat = root1.findtext('acte/vente/dateImmatriculation')
+                    else:
+                        date_immat = root1.findtext('acte/immatriculation/dateImmatriculation')
+                else:
+                    date_immat = root1.findtext('acte/creation/dateImmatriculation')
+
+                time.sleep(0.15)
+                s_activite_insee, s_ape, activite_insee, code_ape = api_request(siren2)
+
+
+
+                liste.append(
+                    {'type' : 'creation',
+                     'siren': siren2,
+                     'forme_juridique' : forme_juridique,
+                     'activite': activite_declaree,
+                     'activite_insee' : activite_insee,
+                     'code_ape' : code_ape,
+                     'code_postal': code_postal,
+                     'date_immat' :date_immat
+                })
+
+                print(f'siren: {siren2} \n'
+                      f'forme juridique: {forme_juridique} \n'
+                      f'acitivite: {activite_declaree} \n'
+                      f'activite_insee : {activite_insee} \n'
+                      f'code_ape : {code_ape} \n'
+                      f'code postal: {code_postal} \n'
+                      f'date_immat : {date_immat }')
+                print('-*-' * 10)
+
+        except:
+            pass
+    except:
+        print(f'{file} could not be parsed')
+
+
+
+for i in liste:
+    print(i)

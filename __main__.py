@@ -3,7 +3,7 @@ import time
 import glob, os
 from download_extract import download, extract_tar, test
 from api import s_activite_insee, s_ape
-from funct_pool import s_activite_declaree, get_personnes
+from funct_pool import s_activite_declaree, get_personnes, s_code_postal
 
 
 """dowloading + extracting with download_extract.py"""
@@ -65,15 +65,20 @@ for file in glob.glob("*.xml"):
                  len(s_activite_declaree),
                  len(s_numero_identification),
                  len(s_numeroDepartement),
+
                  len(s_activite_insee),
-                 len(s_ape))
+                 len(s_ape),
+                 len(s_code_postal)
+
+                )
 
 
                 if len(s_activite_declaree) != total_entrees \
                     or len(s_numero_identification) != total_entrees \
+                    or len(s_code_postal) != total_entrees \
                     or len(s_numeroDepartement) != total_entrees\
                     or len(s_activite_insee) != total_entrees\
-                    or len(s_ape)!= total_entrees:
+                    or len(s_ape) != total_entrees:
 
                     break
 
