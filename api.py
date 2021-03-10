@@ -37,16 +37,16 @@ def api_request(siren):
             s_activite_insee.append("APE Non Diffusable")
 
     elif response.status_code == 429:
-        #print(response.status_code)
-        #print(" TOO MANY REQUEST "*10)
+        print(response.status_code)
+        print(" TOO MANY REQUEST "*10)
         s_ape.append("APE Non Diffusable")
         s_activite_insee.append("APE Non Diffusable")
         code_ape = "APE Non Diffusable"
         activite_insee = "APE Non Diffusable"
     else:
-        #print(response.status_code)
-        #print(" BAD REQUEST" )
-        #print("APE Non Diffusable")
+        print(response.status_code)
+        print(" BAD REQUEST" )
+        print("APE Non Diffusable")
         s_ape.append("APE Non Diffusable")
         s_activite_insee.append("APE Non Diffusable")
         code_ape = "APE Non Diffusable"
