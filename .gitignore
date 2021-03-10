@@ -2,6 +2,11 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,linux,windows,python,flask,reactnative,pycharm
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,linux,windows,python,flask,reactnative,pycharm
 
+
+data.csv
+RCS-A_BXA20210028.xml
+RCS-A_BXA20210005.taz
+
 ### Flask ###
 instance/*
 !instance/.gitignore

@@ -6,7 +6,7 @@ import requests
 import tarfile
 
 """
-Downloading all .taz from data.gouv.fr (2021 folder)
+Downloads all .taz from data.gouv.fr (2021 folder)
 
 then 
 
