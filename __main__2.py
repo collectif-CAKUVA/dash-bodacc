@@ -2,8 +2,7 @@ import xml.etree.ElementTree as et
 import time
 import glob, os
 from download_extract import download, extract_tar, test
-from parser import parsing
-
+from parserr import parsing
 
 """dowloading + extracting with download_extract.py"""
 download()

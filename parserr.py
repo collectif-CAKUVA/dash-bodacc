@@ -84,4 +84,3 @@ def parsing(root1,date):
     return liste
 
 
-
