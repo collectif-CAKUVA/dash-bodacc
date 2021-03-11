@@ -3,6 +3,7 @@ import time
 import glob, os
 from download_extract import download, extract_tar, test
 from parserr import parsing
+import database
 
 """dowloading + extracting with download_extract.py"""
 download()
@@ -19,6 +20,8 @@ start_time = time.time()
 for file in glob.glob("*.xml"):
     nb_fil_total += 1
 print(nb_fil_total)
+
+
 
 for file in glob.glob("*.xml"):
 
@@ -39,10 +42,7 @@ for file in glob.glob("*.xml"):
         total_entrees += 1
         print(f'Entrée n°{nb_entree_ds_fichier} de {file} pour {total_entrees} entrées totales')
         liste = parsing(root1,date)
-
-
-print(len(liste))
-
+        database.add_entreprise(liste)
 """ counter """
 end_time = time.time()
 temps = end_time - start_time
