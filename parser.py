@@ -72,14 +72,14 @@ def parsing(root1,date):
          'date_immat' :date_immat
     })
 
-    print(f'siren: {siren2} \n'
+    """print(f'siren: {siren2} \n'
           f'forme juridique: {forme_juridique} \n'
           f'acitivite: {activite_declaree} \n'
           f'activite_insee : {activite_insee} \n'
           f'code_ape : {code_ape} \n'
           f'code postal: {code_postal} \n'
           f'date_immat : {date_immat }')
-    print('-*-' * 10)
+    print('-*-' * 10)"""
 
     return liste
 

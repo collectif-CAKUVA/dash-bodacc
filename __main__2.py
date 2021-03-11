@@ -3,6 +3,7 @@ import time
 import glob, os
 from download_extract import download, extract_tar, test
 from parser import parsing
+from tqdm import tqdm
 
 
 """dowloading + extracting with download_extract.py"""
@@ -19,9 +20,13 @@ start_time = time.time()
 
 for file in glob.glob("*.xml"):
     nb_fil_total += 1
-print(nb_fil_total)
+#print(nb_fil_total)
 
-for file in glob.glob("*.xml"):
+
+test1 = tqdm(glob.glob("*.xml"))
+
+for file in tqdm(glob.glob("*.xml"), total = nb_fil_total, desc = 'progress', position = 0):
+    test1.update()
 
     print(file)
     y +=1
@@ -32,13 +37,17 @@ for file in glob.glob("*.xml"):
     root = tree.getroot()
 
     date = root.findtext('dateParution')
+    x = root.findall('.//avis')
+
+    test2 = tqdm(root.iter("avis"))
 
 
-    for root1 in root.iter("avis"):
-        print(f'FICHIER n° {y}/{nb_fil_total}')
+    for root1 in tqdm(root.iter("avis"), total= len(x), desc = 'Progress', position = 1):
+        test2.update()
+        #print(f'FICHIER n° {y}/{nb_fil_total}')
         nb_entree_ds_fichier += 1
         total_entrees += 1
-        print(f'Entrée n°{nb_entree_ds_fichier} de {file} pour {total_entrees} entrées totales')
+        #print(f'Entrée n°{nb_entree_ds_fichier} de {file} pour {total_entrees} entrées totales')
         liste = parsing(root1,date)
 
 
