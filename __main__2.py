@@ -20,13 +20,11 @@ start_time = time.time()
 
 for file in glob.glob("*.xml"):
     nb_fil_total += 1
+
 #print(nb_fil_total)
 
 
-test1 = tqdm(glob.glob("*.xml"))
-
-for file in tqdm(glob.glob("*.xml"), total = nb_fil_total, desc = 'progress', position = 0):
-    test1.update()
+for file in glob.glob("*.xml"):
 
     print(file)
     y +=1
@@ -39,11 +37,9 @@ for file in tqdm(glob.glob("*.xml"), total = nb_fil_total, desc = 'progress', po
     date = root.findtext('dateParution')
     x = root.findall('.//avis')
 
-    test2 = tqdm(root.iter("avis"))
 
 
-    for root1 in tqdm(root.iter("avis"), total= len(x), desc = 'Progress', position = 1):
-        test2.update()
+    for root1 in tqdm(root.iter("avis"), total= len(x), desc = 'Progress'):
         #print(f'FICHIER n° {y}/{nb_fil_total}')
         nb_entree_ds_fichier += 1
         total_entrees += 1
