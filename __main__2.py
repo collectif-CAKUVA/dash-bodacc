@@ -40,8 +40,7 @@ for file in glob.glob("*.xml"):
         print(f'Entrée n°{nb_entree_ds_fichier} de {file} pour {total_entrees} entrées totales')
         liste = parsing(root1,date)
 
-
-print(len(liste))
+    database.add_entreprise(liste)
 
 """ counter """
 end_time = time.time()
