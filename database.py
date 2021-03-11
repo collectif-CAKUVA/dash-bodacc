@@ -61,9 +61,6 @@ def create_tables():
 def drop_tables():
     Base.metadata.drop_all(engine)
 
-# Pour ajouter des données sur la table "entreprise"
-# Problème restant ici, notamment au niveau de la duplication de clé primaire ( plusieurs fois le même SIREN dans le CSV )
-# Il faut egalement gérer le principe de clé primaire / secondaire car non fonctionnel pour le moment
 
 def add_entreprise(data):
 
