@@ -93,8 +93,6 @@ def add_entreprise(data):
 
     print('the session has been commited, and datas saved in DB ')
 
-drop_tables()
-create_tables()
  # CRUD
 
 # Create

@@ -36,7 +36,7 @@ for file in glob.glob("*.xml"):
     date = root.findtext('dateParution')
 
 
-    for root1 in root.iter("avis"):
+    for root1 in root.iter("avis") :
         print(f'FICHIER n° {y}/{nb_fil_total}')
         nb_entree_ds_fichier += 1
         total_entrees += 1
@@ -44,6 +44,7 @@ for file in glob.glob("*.xml"):
         liste = parsing(root1,date)
 
     database.add_entreprise(liste)
+
 """ counter """
 end_time = time.time()
 temps = end_time - start_time
