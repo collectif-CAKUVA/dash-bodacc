@@ -22,6 +22,7 @@ for file in glob.glob("*.xml"):
 print(nb_fil_total)
 
 
+liste = []
 
 for file in glob.glob("*.xml"):
 
@@ -35,13 +36,12 @@ for file in glob.glob("*.xml"):
 
     date = root.findtext('dateParution')
 
-
     for root1 in root.iter("avis") :
         print(f'FICHIER n° {y}/{nb_fil_total}')
         nb_entree_ds_fichier += 1
         total_entrees += 1
         print(f'Entrée n°{nb_entree_ds_fichier} de {file} pour {total_entrees} entrées totales')
-        liste = parsing(root1,date)
+        liste = parsing(root1, date)
 
     database.add_entreprise(liste)
 

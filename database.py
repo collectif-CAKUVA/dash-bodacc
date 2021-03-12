@@ -64,7 +64,6 @@ def drop_tables():
 
 def add_entreprise(data):
 
-
     session = Session()
     compteur = 0
     for entreprise in data:
@@ -82,7 +81,6 @@ def add_entreprise(data):
 
             print(f'line {compteur} added to session')
             compteur += 1
-
 
             session.add(company)
             session.commit()
