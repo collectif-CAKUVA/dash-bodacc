@@ -35,9 +35,9 @@ for file in glob.glob("*.xml"):
     root = tree.getroot()
 
     date = root.findtext('dateParution')
+
+
     x = root.findall('.//avis')
-
-
 
     for root1 in tqdm(root.iter("avis"), total= len(x), desc = 'Progress'):
         #print(f'FICHIER n° {y}/{nb_fil_total}')

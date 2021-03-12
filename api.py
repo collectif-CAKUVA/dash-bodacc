@@ -21,7 +21,6 @@ def api_request(siren):
         try:
             x = ape_dict.get(json_data['unite_legale']['etablissement_siege']['activite_principale'].replace('.', ''))
             clean = x[0]
-            #print(json_data['unite_legale']['etablissement_siege']['activite_principale'])
             s_ape.append(json_data['unite_legale']['etablissement_siege']['activite_principale'])
             s_activite_insee.append(clean)
             code_ape = json_data['unite_legale']['etablissement_siege']['activite_principale']
