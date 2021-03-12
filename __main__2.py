@@ -6,8 +6,8 @@ from parserr import parsing
 import database
 
 """dowloading + extracting with download_extract.py"""
-download()
-extract_tar(test)
+# download()
+# extract_tar(test)
 
 
 os.chdir("./.")
@@ -36,7 +36,7 @@ for file in glob.glob("*.xml"):
 
     date = root.findtext('dateParution')
 
-    for root1 in root.iter("avis") :
+    for root1 in root.iter("avis"):
         print(f'FICHIER n° {y}/{nb_fil_total}')
         nb_entree_ds_fichier += 1
         total_entrees += 1
