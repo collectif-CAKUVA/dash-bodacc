@@ -4,6 +4,7 @@ import glob, os
 from download_extract import download, extract_tar, test
 from parserr import parsing
 import database
+from tqdm import tqdm
 
 """dowloading + extracting with download_extract.py"""
 download()
@@ -22,6 +23,7 @@ for file in glob.glob("*.xml"):
 print(nb_fil_total)
 
 
+liste = []
 
 for file in glob.glob("*.xml"):
 
@@ -34,16 +36,17 @@ for file in glob.glob("*.xml"):
     root = tree.getroot()
 
     date = root.findtext('dateParution')
+    x = root.findall('.//avis')
 
-
-    for root1 in root.iter("avis"):
-        print(f'FICHIER n° {y}/{nb_fil_total}')
+    for root1 in tqdm(root.iter("avis"), total=len(x), desc='Progress'):
+        #print(f'FICHIER n° {y}/{nb_fil_total}')
         nb_entree_ds_fichier += 1
         total_entrees += 1
-        print(f'Entrée n°{nb_entree_ds_fichier} de {file} pour {total_entrees} entrées totales')
-        liste = parsing(root1,date)
+        #print(f'Entrée n°{nb_entree_ds_fichier} de {file} pour {total_entrees} entrées totales')
+        liste = parsing(root1, date)
 
     database.add_entreprise(liste)
+
 """ counter """
 end_time = time.time()
 temps = end_time - start_time
