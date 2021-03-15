@@ -6,8 +6,8 @@ from parserr import parsing
 import database
 
 """dowloading + extracting with download_extract.py"""
-# download()
-# extract_tar(test)
+download()
+extract_tar(test)
 
 
 os.chdir("./.")

@@ -64,9 +64,10 @@ def drop_tables():
 
 def add_entreprise(data):
 
-    session = Session()
-    compteur = 0
     for entreprise in data:
+
+        compteur = 0
+        session = Session()
 
         try:
 
@@ -79,7 +80,7 @@ def add_entreprise(data):
             imatriculation_date=entreprise['date_immat'])
 
 
-            print(f'line {compteur} added to session')
+            print(f'line {company.siren} added to session')
             compteur += 1
 
             session.add(company)
@@ -91,6 +92,8 @@ def add_entreprise(data):
 
     print('the session has been commited, and datas saved in DB ')
 
- # CRUD
+drop_tables()
+create_tables()
 
+# CRUD
 # Create
