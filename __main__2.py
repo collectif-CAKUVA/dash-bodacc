@@ -3,12 +3,12 @@ import time
 import glob, os
 from download_extract import download, extract_tar, test
 from parserr import parsing
-import database
+#import database
 from tqdm import tqdm
 
 """dowloading + extracting with download_extract.py"""
-download()
-extract_tar(test)
+#download()
+#extract_tar(test)
 
 
 os.chdir("./.")
@@ -45,7 +45,7 @@ for file in glob.glob("*.xml"):
         #print(f'Entrée n°{nb_entree_ds_fichier} de {file} pour {total_entrees} entrées totales')
         liste = parsing(root1, date)
 
-    database.add_entreprise(liste)
+    #database.add_entreprise(liste)
 
 """ counter """
 end_time = time.time()

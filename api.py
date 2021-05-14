@@ -46,7 +46,6 @@ def api_request(siren):
     else:
         print(response.status_code)
         print(" BAD REQUEST" )
-        print("APE Non Diffusable")
         s_ape.append("APE Non Diffusable")
         s_activite_insee.append("APE Non Diffusable")
         code_ape = "APE Non Diffusable"
