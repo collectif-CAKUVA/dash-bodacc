@@ -21,35 +21,23 @@ def api_request(siren):
         try:
             x = ape_dict.get(json_data['unite_legale']['etablissement_siege']['activite_principale'].replace('.', ''))
             clean = x[0]
-            #print(json_data['unite_legale']['etablissement_siege']['activite_principale'])
-            s_ape.append(json_data['unite_legale']['etablissement_siege']['activite_principale'])
-            s_activite_insee.append(clean)
             code_ape = json_data['unite_legale']['etablissement_siege']['activite_principale']
             activite_insee = clean
 
-            #print(clean)
-
         except:
-            #print("APE Non Diffusable")
             code_ape = "APE Non Diffusable"
             activite_insee = "APE Non Diffusable"
-            s_ape.append("APE Non Diffusable")
-            s_activite_insee.append("APE Non Diffusable")
-
+            
     elif response.status_code == 429:
         print(response.status_code)
         print(" TOO MANY REQUEST "*10)
-        s_ape.append("APE Non Diffusable")
-        s_activite_insee.append("APE Non Diffusable")
         code_ape = "APE Non Diffusable"
         activite_insee = "APE Non Diffusable"
     else:
         print(response.status_code)
         print(" BAD REQUEST" )
-        s_ape.append("APE Non Diffusable")
-        s_activite_insee.append("APE Non Diffusable")
         code_ape = "APE Non Diffusable"
         activite_insee = "APE Non Diffusable"
 
-    return s_activite_insee, s_ape, activite_insee, code_ape
+    return activite_insee, code_ape
 

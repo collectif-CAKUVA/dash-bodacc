@@ -1,9 +1,9 @@
 import xml.etree.ElementTree as et
+import csv
 import time
 import glob, os
 from download_extract import download, extract_tar, test
 from parserr import parsing
-#import database
 from tqdm import tqdm
 
 """dowloading + extracting with download_extract.py"""
@@ -16,8 +16,12 @@ total_entrees = 0
 y = 0
 nb_entree_ds_fichier = 0
 nb_fil_total = 0
+
+""" chrono on """
 start_time = time.time()
 
+
+""" .xml file counter """
 for file in glob.glob("*.xml"):
     nb_fil_total += 1
 print(nb_fil_total)
@@ -47,19 +51,19 @@ for file in glob.glob("*.xml"):
 
     #database.add_entreprise(liste)
 
-""" counter """
+""" time counter """
 end_time = time.time()
 temps = end_time - start_time
 print(f"le temps d'execution du script est de {round(temps)} s, soit {round(temps / 60)} min , soit {round(temps/3600)} heures")
 
 
+""" export dic list to csv"""
+keys = liste[0].keys()
+with open('data_test.csv', 'w', newline='') as output_file:
+    dict_writer = csv.DictWriter(output_file, keys)
+    dict_writer.writeheader()
+    dict_writer.writerows(liste)
 
-
-"""/!\ do not erase the import viz below > runs viz.py file"""
-
-#import viz
-
-"""/!\ do not erase the import viz above > runs viz.py file"""
 
 
 
